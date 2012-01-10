@@ -5,8 +5,6 @@ call pathogen#runtime_append_all_bundles()
 cmap w!! %!sudo tee > /dev/null %
 " Ctrl-b: indent
 map <C-b> gg=G<CR>
-" Ctrl-r: launch ruby
-map <C-r> :!ruby %<CR>
 " Caps Lock is set as Option (in OSX System Preferences), so now we can assign Caps Lock+Q to Esc
 :imap  <esc>
 "map <silent> <C-e> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -43,3 +41,6 @@ set dictionary+=/usr/share/dict/words
 " Hooks
 " Launches Sinatra projects after saving
 " au BufWritePost *.rb if getline(2) =~ "sinatra" | !ruby <afile>
+" rsync to who
+:au BufWritePost who.rb !/Users/florent/Dropbox/Projects/who/update_vps.sh
+
