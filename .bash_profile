@@ -5,7 +5,7 @@ export EDITOR=vim
 export PS1="[\t] \u@\h:\w $ " # Prettier prompt
 
 ## Linux specific
-alias ll='ls -lh --color'
+#alias ll='ls -lh --color'
 
 ## OS X specific
 alias ls='ls -lhG' # colourized output is -G for BSD ls, and --color for GNU ls
