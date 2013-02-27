@@ -1,5 +1,5 @@
 " General option - run all the scripts
-call pathogen#runtime_append_all_bundles()
+"call pathogen#runtime_append_all_bundles()
 
 " Mappings
 cmap w!! %!sudo tee > /dev/null %
@@ -20,9 +20,9 @@ set ru					" ruler (position inside the document)
 set ts=5					" tab stop size; 1 tab = 5 spaces
 set sw=5					" shift width, same thing
 set dir=/tmp				" where to put the swap files
-colorscheme moria
-colorscheme anotherdark		" color scheme <3
-colorscheme moria			" why do we have to set it three times? No idea. but it doesn't really work otherwise.
+"colorscheme moria
+"colorscheme anotherdark		" color scheme <3
+"olorscheme moria			" why do we have to set it three times? No idea. but it doesn't really work otherwise.
 set guifont=Menlo:h15		" Best font.
 set ww=<,>,[,]				" Allow the right/left arrows to go to next and previous line
 
@@ -42,5 +42,5 @@ set dictionary+=/usr/share/dict/words
 " Launches Sinatra projects after saving
 " au BufWritePost *.rb if getline(2) =~ "sinatra" | !ruby <afile>
 " rsync to who
-:au BufWritePost who.rb !/Users/florent/Dropbox/Projects/who/update_vps.sh
+":au BufWritePost who.rb !/Users/florent/Dropbox/Projects/who/update_vps.sh
 
