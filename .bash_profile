@@ -5,16 +5,16 @@ export EDITOR=vim
 export PS1="[\t] \u@\h:\w $ "
 
 ## Linux specific
-#alias ll='ls -lh --color'
+alias ll='ls -lh --color'
 
 ## OS X specific
-alias ls='ls -lhG' # colourized output is -G for BSD ls, and --color for GNU ls
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
+#alias ls='ls -lhG' # colourized output is -G for BSD ls, and --color for GNU ls
+#if [ -f `brew --prefix`/etc/bash_completion ]; then
+#  . `brew --prefix`/etc/bash_completion
+#fi
 
 ## Personal tweaks
-export PATH=~/Dropbox/Binaries/z:~/Dropbox/Binaries:~/Dropbox/Binaries/perl:$PATH:/usr/local/sbin
+export PATH=~/attic/bin:$PATH
 # dns-sd -P iTunesServer _daap._tcp local 3690 localhost.local 127.0.0.1 &
 alias duh='du -d 1 2>/dev/null|/Users/florent/Dropbox/Binaries/orderdu.pl'
 
