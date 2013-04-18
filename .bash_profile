@@ -8,9 +8,13 @@ export PS1="[\t] \u@\h:\w $ "
 #alias ll='ls -lh --color'
 
 ## OS X specific
-alias ls='ls -lhG' # colourized output is -G for BSD ls, and --color for GNU ls
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
+if [[ $(uname) == "Darwin" ]]
+then
+	alias ls='ls -lhG' # colourized output is -G for BSD ls, and --color for GNU ls
+	alias locate='echo "No! Use mdfind instead!"; #'
+	if [ -f `brew --prefix`/etc/bash_completion ]; then
+		. `brew --prefix`/etc/bash_completion
+	fi
 fi
 
 ## Personal tweaks
