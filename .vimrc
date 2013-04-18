@@ -25,6 +25,8 @@ colorscheme anotherdark		" color scheme <3
 colorscheme moria			" why do we have to set it three times? No idea. but it doesn't really work otherwise.
 set guifont=Menlo:h15		" Best font.
 set ww=<,>,[,]				" Allow the right/left arrows to go to next and previous line
+nmap j gj
+nmap k gk
 
 " Fix Scheme indenting (no tabs)
 autocmd FileType scheme set expandtab
@@ -37,6 +39,13 @@ set foldlevel=1
 
 " Dictionary support
 set dictionary+=/usr/share/dict/words
+
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+nmap \q :nohlsearch<CR>
+
 
 " Hooks
 " Launches Sinatra projects after saving
