@@ -1,0 +1,1 @@
+alias 10lc='git log -10 --pretty=oneline'

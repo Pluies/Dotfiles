@@ -1,0 +1,40 @@
+# Helpful aliases
+function tks-update {
+  function usage {
+    echo "Usage:"
+    echo "tks-merge [-c|--confirm] [-l period] file.tks"
+    return
+  }
+
+  TKSFILE=''
+  CONFIRM=''
+  PERIOD='week'
+  while (( "$#" )); do
+    case "$1" in
+    -h) usage; return
+        ;;
+    -c|--confirm)
+        CONFIRM='-c'
+        shift
+        ;;
+    -l) shift
+        PERIOD=$1
+        shift
+        ;;
+    *)  TKSFILE=$1
+        break
+        ;;
+    esac
+  done
+  if [ "" = "$TKSFILE" ]; then
+    usage
+    return
+  fi
+  if [ ! -f "$TKSFILE" ]; then
+    echo "File not found"
+    return
+  fi
+
+  tks -l $PERIOD | cat - $TKSFILE > /tmp/tks.tmp ; tks $CONFIRM --force /tmp/tks.tmp
+}
+

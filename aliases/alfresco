@@ -1,0 +1,37 @@
+# AH - Alfresco Helpers
+
+# Your Alfresco base dir
+export AH_DIR='/opt/alfresco-4.2.c'
+
+# WAR files
+export AH_WAR="$AH_DIR/tomcat/webapps/alfresco.war"
+export AH_WAR_SHARE="$AH_DIR/tomcat/webapps/share.war"
+
+# Helpful aliases
+function ah-mmt {
+	if [ "-h" == "$1" ]; then
+		echo "Usage:"
+		echo "ah-mmt list [warfile]"
+		echo "ah-mmt (install|uninstall) ampfile [warfile]"
+		return
+	fi
+	WARFILE=$AH_WAR
+	ARGS="$1"
+	if [ "$1" == "install" ] || [ "$1" == "uninstall" ]; then
+		ARGS="$ARGS $2"
+		shift;
+	fi
+	if [ ! -z "$2" ]; then
+		WARFILE=$2
+	fi
+	echo "Using warfile: $WARFILE"
+	echo "Using command: java -jar $AH_DIR/bin/alfresco-mmt.jar $ARGS $WARFILE"
+	java -jar $AH_DIR/bin/alfresco-mmt.jar $ARGS $WARFILE
+}
+
+alias ah-start='(cd $AH_DIR && ./alfresco.sh start)'
+alias ah-stop='(cd $AH_DIR && ./alfresco.sh stop)'
+alias ah-restart='(cd $AH_DIR && ./alfresco.sh restart tomcat)'
+
+alias ah-logs='less +F $AH_DIR/*.log'
+alias ah-logs-tomcat='less +F $AH_DIR/tomcat/logs/*.log'
