@@ -1,6 +1,7 @@
-#!/bin/bash
-
 alias ramdisk-alfresco-create='sudo mount -t tmpfs -o size=2048M tmpfs /ramdisk/ && cp -R /opt/alfresco-4.2.c-for-ramdisk/alfresco-4.2.c /ramdisk/'
 alias ramdisk-alfresco-start='(cd /ramdisk/alfresco-4.2.c/ && ./alfresco.sh start)'
+alias ramdisk-alfresco-restart='(cd /ramdisk/alfresco-4.2.c/ && ./alfresco.sh restart)'
 alias ramdisk-alfresco-stop='(cd /ramdisk/alfresco-4.2.c/ && ./alfresco.sh stop)'
 alias ramdisk-alfresco-delete='sudo umount /ramdisk'
+
+alias ramdisk-alfresco-make-symlinks='(cd /ramdisk/alfresco-4.2.c/tomcat/webapps && rm -Rf alfresco share alfresco.war share.war && ln -s /home/florent/maven3/ca/share/target/share && ln -s /home/florent/maven3/ca/alfresco/target/alfresco)'
