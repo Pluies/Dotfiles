@@ -1,0 +1,2 @@
+alias maven='mvn'
+alias mvnt='mvn -DskipTests=true'
