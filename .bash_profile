@@ -3,6 +3,8 @@ alias ll='ls -lh'
 alias dud="du -h --max-depth=1"
 export EDITOR=vim
 export PS1="[\t] \u@\h:\w $ "
+export JAVA_HOME=/usr/lib/jvm/jdk1.7.0/
+export MAVEN_OPTS="-Xms512m -Xmx2048m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256m"
 
 ## Linux specific
 alias ll='ls -lh --color'
@@ -38,3 +40,26 @@ function gitcolour {
 }
 # Prettier prompt including Git status
 export PS1="[\t]\u@\h:\w\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\]$ "
+
+# Aliases
+for alias in $(ls ~/attic/Dotfiles/aliases/*)
+do
+	. $alias
+done
+
+# Rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# Unify history across sessions
+shopt -s histappend
+#PROMPT_COMMAND="$PROMPT_COMMAND history -a; history -n"
+
+# Load Node Version Manager
+[[ -s /home/florent/.nvm/nvm.sh ]] && . /home/florent/.nvm/nvm.sh
+
+# Add extra bash goodness
+shopt -s globstar      # Allows ls **/*.css
+shopt -s autocd        # Allows just typing the dirname and having it auto-cd
+shopt -s cdable_vars   # If cd doesn't find the folder, assume it's a var and try to expand it
+export m='/home/florent/minefield' # Makes 'cd m' go to minefield
