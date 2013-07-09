@@ -1,6 +1,24 @@
 " General option - run all the scripts
 "call pathogen#runtime_append_all_bundles()
 
+
+" Vundle
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
+
+" vim-airline
+set laststatus=2
+set t_Co=256
+set ttimeoutlen=50
+let g:airline_powerline_fonts=1
+
+
 " Mappings
 cmap w!! %!sudo tee > /dev/null %
 " Ctrl-b: indent
@@ -37,6 +55,11 @@ set foldlevel=1
 
 " Dictionary support
 set dictionary+=/usr/share/dict/words
+
+" ftl support
+au BufRead,BufNewFile *.ftl set filetype=ftl
+au! Syntax ftl source ~/.vim/ftl.vim
+
 
 " Hooks
 " Launches Sinatra projects after saving
