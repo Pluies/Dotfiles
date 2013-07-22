@@ -5,3 +5,5 @@ alias ramdisk-alfresco-stop='(cd /ramdisk/alfresco-4.2.c/ && ./alfresco.sh stop)
 alias ramdisk-alfresco-delete='sudo umount /ramdisk'
 
 alias ramdisk-alfresco-make-symlinks='(cd /ramdisk/alfresco-4.2.c/tomcat/webapps && rm -Rf alfresco share alfresco.war share.war && ln -s /home/florent/maven3/ca/share/target/share && ln -s /home/florent/maven3/ca/alfresco/target/alfresco)'
+
+alias ramdisk-alfresco-regenerate='sudo echo "Regenerating..." && ramdisk-alfresco-stop && ramdisk-alfresco-delete && ramdisk-alfresco-create && ramdisk-alfresco-start'
