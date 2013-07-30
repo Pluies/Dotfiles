@@ -60,6 +60,5 @@ shopt -s histappend
 
 # Add extra bash goodness
 shopt -s globstar      # Allows ls **/*.css
-shopt -s autocd        # Allows just typing the dirname and having it auto-cd
 shopt -s cdable_vars   # If cd doesn't find the folder, assume it's a var and try to expand it
 export m='/home/florent/minefield' # Makes 'cd m' go to minefield
