@@ -1,0 +1,4 @@
+# I work with symlinks a lot and want normal commands to work across them
+alias find='find -L'
+alias ack='ack --follow'
+alias ag='ag --follow'
