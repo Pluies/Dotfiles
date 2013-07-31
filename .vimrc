@@ -59,10 +59,24 @@ set dictionary+=/usr/share/dict/words
 au BufRead,BufNewFile *.ftl set filetype=ftl
 au! Syntax ftl source ~/.vim/ftl.vim
 
-" Show tabs, trailing spaces
-set lcs=tab:\ \ ,trail:•
-set list
+" Show trailing spaces
+set listchars=tab:»\ ,eol:↯,trail:•
+set nolist
 highlight SpecialKey ctermbg=1 ctermfg=15
+
+" Show Tabs
+function ShowTabsFun()
+  syntax match Tab /\t/ containedin=ALL
+  highlight Tab gui=underline ctermbg=236
+endfunction
+command ShowTabs call ShowTabsFun()
+
+" Show Spaces
+function ShowSpacesFun()
+  syntax match Spaces /  \+/ containedin=ALL
+  highlight Spaces gui=underline ctermbg=220
+endfunction
+command ShowSpaces call ShowSpacesFun()
 
 " Hooks
 " Launches Sinatra projects after saving
