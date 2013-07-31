@@ -6,7 +6,6 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
-set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
@@ -60,6 +59,10 @@ set dictionary+=/usr/share/dict/words
 au BufRead,BufNewFile *.ftl set filetype=ftl
 au! Syntax ftl source ~/.vim/ftl.vim
 
+" Show tabs, trailing spaces
+set lcs=tab:\ \ ,trail:•
+set list
+highlight SpecialKey ctermbg=1 ctermfg=15
 
 " Hooks
 " Launches Sinatra projects after saving
