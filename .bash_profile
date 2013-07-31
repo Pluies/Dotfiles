@@ -44,7 +44,7 @@ export PS1="[\t]\u@\h:\w\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\]$ "
 # Aliases
 for alias in $(ls ~/attic/Dotfiles/aliases/*)
 do
-	. $alias
+     . $alias
 done
 
 # Rbenv
