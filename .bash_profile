@@ -62,3 +62,7 @@ shopt -s histappend
 shopt -s globstar      # Allows ls **/*.css
 shopt -s cdable_vars   # If cd doesn't find the folder, assume it's a var and try to expand it
 export m='/home/florent/minefield' # Makes 'cd m' go to minefield
+
+# Cabal
+export PATH="$PATH:$HOME/.cabal/bin"
+
