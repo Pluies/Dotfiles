@@ -66,3 +66,15 @@ export m='/home/florent/minefield' # Makes 'cd m' go to minefield
 # Cabal
 export PATH="$PATH:$HOME/.cabal/bin"
 
+## History management
+# Take note of the existing history size
+HISTFILE_ORIG=$HISTFILE
+HISTFILE_ORIG_SIZE=$(cat $HISTFILE | wc -l) # Pipe so that it just remembers the number
+# Create local history
+mkdir -p /tmp/$(dirname $HISTFILE) # In case the folder doesn't exist yet
+HISTFILE=/tmp/$HISTFILE.$$
+# Copy the existing history over to our local history
+cat $HISTFILE_ORIG > $HISTFILE
+# And rapatriate things over upon exit
+trap 'history -w ; tail -n +$HISTFILE_ORIG_SIZE $HISTFILE >> $HISTFILE_ORIG; rm $HISTFILE' EXIT
+
