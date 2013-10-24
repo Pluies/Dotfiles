@@ -1,6 +1,12 @@
 " General option - run all the scripts
 call pathogen#runtime_append_all_bundles()
 
+" Airline
+set ttimeoutlen=50
+set laststatus=2
+let g:airline_powerline_fonts=1
+
+
 " Mappings
 cmap w!! %!sudo tee > /dev/null %
 " Ctrl-b: indent
@@ -23,7 +29,7 @@ set dir=/tmp				" where to put the swap files
 colorscheme moria
 colorscheme anotherdark		" color scheme <3
 colorscheme moria			" why do we have to set it three times? No idea. but it doesn't really work otherwise.
-set guifont=Menlo:h15		" Best font.
+set guifont=Menlo\ for\ Powerline:h15		" Best font.
 set ww=<,>,[,]				" Allow the right/left arrows to go to next and previous line
 nmap j gj
 nmap k gk
