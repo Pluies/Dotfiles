@@ -18,7 +18,7 @@ then
 fi
 
 ## Personal tweaks
-export PATH=~/Dropbox/Binaries/z:~/Dropbox/Binaries:~/Dropbox/Binaries/perl:$PATH:/usr/local/sbin
+export PATH=~/.cabal/bin:~/.rbenv/shims:/usr/local/sbin:/usr/local/bin:~/Dropbox/Binaries/z:~/Dropbox/Binaries:~/Dropbox/Binaries/perl:$PATH
 # dns-sd -P iTunesServer _daap._tcp local 3690 localhost.local 127.0.0.1 &
 alias duh='du -d 1 2>/dev/null|/Users/florent/Dropbox/Binaries/orderdu.pl'
 
