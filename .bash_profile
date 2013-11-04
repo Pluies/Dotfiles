@@ -39,7 +39,7 @@ function gitcolour {
   fi
 }
 # Prettier prompt including Git status
-export PS1="[\t]\u@\h:\w\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\]$ "
+export PS1="\[$ORANGE\][\t]\[$NOCOLOUR\] \u@\h:\w\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\]$ "
 
 # Aliases
 for alias in $(ls ~/attic/Dotfiles/aliases/*)
@@ -68,13 +68,13 @@ export PATH="$PATH:$HOME/.cabal/bin"
 
 ## History management
 # Take note of the existing history size
-HISTFILE_ORIG=$HISTFILE
-HISTFILE_ORIG_SIZE=$(cat $HISTFILE | wc -l) # Pipe so that it just remembers the number
+#HISTFILE_ORIG=$HISTFILE
+#HISTFILE_ORIG_SIZE=$(cat $HISTFILE | wc -l) # Pipe so that it just remembers the number
 # Create local history
-mkdir -p /tmp/$(dirname $HISTFILE) # In case the folder doesn't exist yet
-HISTFILE=/tmp/$HISTFILE.$$
+#mkdir -p /tmp/$(dirname $HISTFILE) # In case the folder doesn't exist yet
+#HISTFILE=/tmp/$HISTFILE.$$
 # Copy the existing history over to our local history
-cat $HISTFILE_ORIG > $HISTFILE
+#cat $HISTFILE_ORIG > $HISTFILE
 # And rapatriate things over upon exit
-trap 'history -w ; tail -n +$HISTFILE_ORIG_SIZE $HISTFILE >> $HISTFILE_ORIG; rm $HISTFILE' EXIT
+#trap 'history -w ; tail -n +$HISTFILE_ORIG_SIZE $HISTFILE >> $HISTFILE_ORIG; rm $HISTFILE' EXIT
 
