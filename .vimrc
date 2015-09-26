@@ -1,61 +1,52 @@
-" General option - run all the scripts
-call pathogen#runtime_append_all_bundles()
+" Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-sleuth'
+Plugin 'bling/vim-airline'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'powerline/fonts'  " NB: still need to run the ./install.sh script for the fonts to actually get installed
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'qualiabyte/vim-colorstepper'
+Plugin 'scrooloose/syntastic.git'
+Plugin 'tpope/vim-fireplace'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " Airline
-set ttimeoutlen=50
 set laststatus=2
 let g:airline_powerline_fonts=1
 
-
 " Mappings
 cmap w!! %!sudo tee > /dev/null %
-" Ctrl-b: indent
-map <C-b> gg=G<CR>
-" Caps Lock is set as Option (in OSX System Preferences), so now we can assign Caps Lock+Q to Esc
-:imap  <esc>
-"map <silent> <C-e> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
 
 " Various options
-filetype plugin indent on	" perfect autoindent
-set number				" line numbering
-set cursorline				" cursor line is highlighted
-set lazyredraw				" do not redraw while running macros
-set hls					" highlight search
-set ru					" ruler (position inside the document)
-set ts=5					" tab stop size; 1 tab = 5 spaces
-set sw=5					" shift width, same thing
-set dir=/tmp				" where to put the swap files
-colorscheme moria
-colorscheme anotherdark		" color scheme <3
-colorscheme moria			" why do we have to set it three times? No idea. but it doesn't really work otherwise.
-set guifont=Menlo\ for\ Powerline:h15		" Best font.
-set ww=<,>,[,]				" Allow the right/left arrows to go to next and previous line
+set ww=<,>,[,]               " Allow the right/left arrows to go to next and previous line
+set number cursorline        " line numbering w/ cursor line highlighted
+set showcmd                  " show incomplete cmds down the bottom
+set lazyredraw               " do not redraw while running macros
+set hlsearch incsearch       " highlighted, incremental search
+set ignorecase smartcase     " smart casing
+set dir=/tmp                 " where to put the swap files
+set ttimeoutlen=50
+
+if has('gui_running')
+  " GUI config
+  set background=dark
+  colorscheme moria
+  set guifont=Menlo\ for\ Powerline:h13
+else
+  " CLI config
+  set t_Co=256
+  syntax on
+endif
+
 nmap j gj
 nmap k gk
-
-" Fix Scheme indenting (no tabs)
-autocmd FileType scheme set expandtab
-
-" Code folding
-set foldmethod=indent		"fold based on indent
-set foldnestmax=10			"deepest fold is 10 levels
-set nofoldenable			"dont fold by default
-set foldlevel=1
-
-" Dictionary support
-set dictionary+=/usr/share/dict/words
-
-set incsearch
-set ignorecase
-set smartcase
-set hlsearch
-nmap \q :nohlsearch<CR>
-
-
-" Hooks
-" Launches Sinatra projects after saving
-" au BufWritePost *.rb if getline(2) =~ "sinatra" | !ruby <afile>
-" rsync to who
-:au BufWritePost who.rb !/Users/florent/Dropbox/Projects/who/update_vps.sh
 
