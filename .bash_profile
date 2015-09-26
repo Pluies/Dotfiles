@@ -12,15 +12,14 @@ if [[ $(uname) == "Darwin" ]]
 then
 	alias ls='ls -lhG' # colourized output is -G for BSD ls, and --color for GNU ls
 	alias locate='echo "No! Use mdfind instead!"; #'
+	alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 	if [ -f `brew --prefix`/etc/bash_completion ]; then
 		. `brew --prefix`/etc/bash_completion
 	fi
 fi
 
 ## Personal tweaks
-export PATH=~/.cabal/bin:~/.rbenv/shims:/usr/local/sbin:/usr/local/bin:~/Dropbox/Binaries/z:~/Dropbox/Binaries:~/Dropbox/Binaries/perl:$PATH
-# dns-sd -P iTunesServer _daap._tcp local 3690 localhost.local 127.0.0.1 &
-alias duh='du -d 1 2>/dev/null|/Users/florent/Dropbox/Binaries/orderdu.pl'
+export PATH=/usr/local/sbin:/usr/local/bin:~/Dropbox/Binaries/z:~/Dropbox/Binaries:~/Dropbox/Binaries/perl:$PATH
 
 GREEN="\033[0;32m"
 ORANGE="\033[1;33m"
