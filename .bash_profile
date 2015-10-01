@@ -19,7 +19,7 @@ then
 fi
 
 ## Personal tweaks
-export PATH=/usr/local/sbin:/usr/local/bin:~/Dropbox/Binaries/z:~/Dropbox/Binaries:~/Dropbox/Binaries/perl:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:~/Dropbox/Binaries:$PATH
 
 GREEN="\033[0;32m"
 ORANGE="\033[1;33m"
