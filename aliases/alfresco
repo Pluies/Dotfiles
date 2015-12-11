@@ -1,7 +1,7 @@
 # AH - Alfresco Helpers
 
 # Your Alfresco base dir
-export AH_DIR='/opt/alfresco-4.2.c'
+export AH_DIR='/opt/alfresco-4.2.c-for-ramdisk/alfresco-4.2.c'
 
 # WAR files
 export AH_WAR="$AH_DIR/tomcat/webapps/alfresco.war"

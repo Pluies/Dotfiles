@@ -7,13 +7,22 @@ export JAVA_HOME=/usr/lib/jvm/jdk1.7.0/
 export MAVEN_OPTS="-Xms512m -Xmx2048m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256m"
 
 ## Linux specific
-alias ll='ls -lh --color'
+if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+	alias ll='ls -lh --color'
+	alias open='xdg-open'
+	alias gvim='UBUNTU_MENUPROXY= gvim'
+	alias pbcopy='xclip -selection clipboard'
+	alias pbpaste='xclip -selection clipboard -o'
+	alias mvn='/home/florent/attic/maven-3.2.5/bin/mvn'
+fi
 
 ## OS X specific
-#alias ls='ls -lhG' # colourized output is -G for BSD ls, and --color for GNU ls
-#if [ -f `brew --prefix`/etc/bash_completion ]; then
-#  . `brew --prefix`/etc/bash_completion
-#fi
+if [ "$(uname)" == "Darwin" ]; then
+	alias ls='ls -lhG' # colourized output is -G for BSD ls, and --color for GNU ls
+	if [ -f `brew --prefix`/etc/bash_completion ]; then
+		. `brew --prefix`/etc/bash_completion
+	fi
+fi
 
 ## Personal tweaks
 export PATH=~/attic/bin:$PATH
@@ -39,7 +48,11 @@ function gitcolour {
   fi
 }
 # Prettier prompt including Git status
-export PS1="\[$ORANGE\][\t]\[$NOCOLOUR\] \u@\h:\w\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\]$ "
+WHITE="\033[1;37m" # In white bold to show it's my machine
+export PS1="\[$WHITE\][\t] \w\[$NOCOLOUR\]\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\]$ "
+
+# Extra colours!
+export TERM=xterm-256color
 
 # Aliases
 for alias in $(ls ~/attic/Dotfiles/aliases/*)
@@ -77,4 +90,8 @@ export PATH="$PATH:$HOME/.cabal/bin"
 #cat $HISTFILE_ORIG > $HISTFILE
 # And rapatriate things over upon exit
 #trap 'history -w ; tail -n +$HISTFILE_ORIG_SIZE $HISTFILE >> $HISTFILE_ORIG; rm $HISTFILE' EXIT
+
+# Stuff3 stuff
+export PGPASSFILE=/home/florent/.pgpass
+export STUFFNEWS_CONFIG=/etc/stuff3/config.ini
 
