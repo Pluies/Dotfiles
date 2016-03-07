@@ -24,6 +24,12 @@ do
   . $alias
 done
 
+# History back and forth
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+bind '"\eOA": history-search-backward'
+bind '"\eOB": history-search-forward'
+
 GREEN="\033[0;32m"
 ORANGE="\033[1;33m"
 RED="\033[0;31m"

@@ -35,6 +35,7 @@ set hlsearch incsearch       " highlighted, incremental search
 set ignorecase smartcase     " smart casing
 set dir=/tmp                 " where to put the swap files
 set ttimeoutlen=50
+set mouse=a
 
 if has('gui_running')
   " GUI config
