@@ -1,0 +1,2 @@
+export VIRTUALENVWRAPPER_PYTHON=python3
+. virtualenvwrapper.sh

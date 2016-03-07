@@ -24,6 +24,12 @@ do
   . $alias
 done
 
+# Modules
+for module in ~/misc/Dotfiles/modules/*
+do
+  . $module
+done
+
 # History back and forth
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
