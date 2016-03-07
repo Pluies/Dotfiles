@@ -1,0 +1,4 @@
+alias 10lc='git lg -10'
+alias gf='git fetch --all --prune'
+alias brn='git rev-parse --abbrev-ref HEAD'
+alias gitback='gf && git checkout master && git pull --ff-only'

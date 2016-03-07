@@ -10,9 +10,6 @@ export PS1="[\t] \u@\h:\w $ "
 ## OS X specific
 if [[ $(uname) == "Darwin" ]]
 then
-	alias ls='ls -lhG' # colourized output is -G for BSD ls, and --color for GNU ls
-	alias locate='echo "No! Use mdfind instead!"; #'
-	alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
 	if [ -f `brew --prefix`/etc/bash_completion ]; then
 		. `brew --prefix`/etc/bash_completion
 	fi
@@ -20,6 +17,12 @@ fi
 
 ## Personal tweaks
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+
+# Aliases
+for alias in ~/misc/Dotfiles/aliases/*
+do
+  . $alias
+done
 
 GREEN="\033[0;32m"
 ORANGE="\033[1;33m"

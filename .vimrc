@@ -40,7 +40,7 @@ if has('gui_running')
   " GUI config
   set background=dark
   colorscheme moria
-  set guifont=Menlo\ for\ Powerline:h13
+  set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h12
 else
   " CLI config
   set t_Co=256
