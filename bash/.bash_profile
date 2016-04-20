@@ -19,13 +19,13 @@ fi
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
 # Aliases
-for alias in ~/misc/Dotfiles/aliases/*
+for alias in ~/.bash/aliases/*
 do
   . $alias
 done
 
 # Modules
-for module in ~/misc/Dotfiles/modules/*
+for module in ~/.bash/modules/*
 do
   . $module
 done
