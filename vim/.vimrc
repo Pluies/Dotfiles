@@ -53,6 +53,9 @@ else
   syntax on
 endif
 
+" Display hidden files in NERDTree by default
+let NERDTreeShowHidden=1
+
 nmap j gj
 nmap k gk
 
