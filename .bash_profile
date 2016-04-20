@@ -35,6 +35,10 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 bind '"\eOA": history-search-backward'
 bind '"\eOB": history-search-forward'
+# More history!
+HISTSIZE=10000000
+HISTFILESIZE=10000000
+
 
 GREEN="\033[0;32m"
 ORANGE="\033[1;33m"
@@ -56,3 +60,7 @@ function gitcolour {
 }
 # Prettier prompt including Git status
 export PS1="[\t]\u@\h:\w\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\]$ "
+
+# RVM
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
