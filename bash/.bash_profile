@@ -46,6 +46,7 @@ RED="\033[0;31m"
 PURPLE="\033[0;35m"
 CYAN="\033[0;36m"
 NOCOLOUR="\033[0m"
+BOLD="\033[1m"
 function gitcolour {
   STATUS=`git status 2>&1`
   if   [[ $STATUS == *'working directory clean'* ]]; then
@@ -58,8 +59,9 @@ function gitcolour {
       echo -en $CYAN
   fi
 }
+BOLDLAMBDA="\[$BOLD\]λ\[$NOCOLOUR\]"
 # Prettier prompt including Git status
-export PS1="[\t]\u@\h:\w\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\]$ "
+export PS1="[\t]\w\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\] $BOLDLAMBDA "
 
 # RVM
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
