@@ -15,6 +15,9 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'qualiabyte/vim-colorstepper'
 Plugin 'scrooloose/syntastic.git'
 Plugin 'tpope/vim-fireplace'
+Plugin 'nvie/vim-flake8'
+
+let g:flake8_cmd="/usr/local/bin/pep8"
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -35,17 +38,23 @@ set hlsearch incsearch       " highlighted, incremental search
 set ignorecase smartcase     " smart casing
 set dir=/tmp                 " where to put the swap files
 set ttimeoutlen=50
+set mouse=a
 
 if has('gui_running')
   " GUI config
   set background=dark
   colorscheme moria
-  set guifont=Menlo\ for\ Powerline:h13
+  set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h14
+  " Automatically launch NERDtree
+  au VimEnter *  NERDTree 
 else
   " CLI config
   set t_Co=256
   syntax on
 endif
+
+" Display hidden files in NERDTree by default
+let NERDTreeShowHidden=1
 
 nmap j gj
 nmap k gk
