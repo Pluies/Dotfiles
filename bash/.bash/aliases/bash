@@ -1,0 +1,4 @@
+alias ls='ls -lahG' # colourized output is -G for BSD ls, and --color for GNU ls
+alias locate='echo "No! Use mdfind instead!"; #'
+alias vim=/Users/babylon/Applications/MacVim.app/Contents/MacOS/Vim
+alias gvim=mvim
