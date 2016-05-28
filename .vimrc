@@ -1,3 +1,4 @@
+
 " Vundle
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -15,6 +16,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'qualiabyte/vim-colorstepper'
 Plugin 'scrooloose/syntastic.git'
 Plugin 'tpope/vim-fireplace'
+Plugin 'nvie/vim-flake8'
+Bundle 'chase/vim-ansible-yaml'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

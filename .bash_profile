@@ -21,6 +21,9 @@ fi
 ## Personal tweaks
 export PATH=/usr/local/sbin:/usr/local/bin:~/Dropbox/Binaries:$PATH
 
+# rbenv autocompletion
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 GREEN="\033[0;32m"
 ORANGE="\033[1;33m"
 RED="\033[0;31m"
@@ -41,3 +44,12 @@ function gitcolour {
 }
 # Prettier prompt including Git status
 export PS1="[\t]\u@\h:\w\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\]$ "
+
+# Python-specific
+export VIRTUALENVWRAPPER_PYTHON=python3
+source /usr/local/bin/virtualenvwrapper.sh
+
+shopt -s histappend
+export HISTCONTROL=ignoredups
+export HISTSIZE=100000
+export HISTFILESIZE=100000
