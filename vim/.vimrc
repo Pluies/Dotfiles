@@ -17,6 +17,7 @@ Plugin 'scrooloose/syntastic.git'
 Plugin 'tpope/vim-fireplace'
 Plugin 'nvie/vim-flake8'
 Bundle 'chase/vim-ansible-yaml'
+Plugin 'mattn/emmet-vim'
 
 let g:flake8_cmd="/usr/local/bin/pep8"
 
