@@ -49,7 +49,7 @@ NOCOLOUR="\033[0m"
 BOLD="\033[1m"
 function gitcolour {
   STATUS=`git status 2>&1`
-  if   [[ $STATUS == *'working directory clean'* ]]; then
+  if   [[ $STATUS == *'working tree clean'* ]]; then
       echo -en $GREEN
   elif [[ $STATUS == *'not staged for commit'* ]]; then
       echo -en $RED
