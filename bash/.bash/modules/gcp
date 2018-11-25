@@ -1,0 +1,2 @@
+#export GOOGLE_APPLICATION_CREDENTIALS=~/Downloads/google-cloud-sdk/florent-experiments-221421-ce07f4ba9273.json
+export GOOGLE_CLOUD_KEYFILE_JSON=~/Downloads/google-cloud-sdk/florent-experiments-221421-ce07f4ba9273.json

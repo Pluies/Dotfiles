@@ -68,12 +68,17 @@ BOLDLAMBDA="\[$BOLD\]λ\[$NOCOLOUR\]"
 # Prettier prompt including Git status
 export PS1="[\t]\w\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\] $BOLDLAMBDA "
 
-# RVM
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 # Longer history
 shopt -s histappend
 export HISTCONTROL=ignoredups
 export HISTSIZE=100000
 export HISTFILESIZE=100000
+
+# rbenv
+eval "$(rbenv init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/florent/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/florent/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/florent/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/florent/Downloads/google-cloud-sdk/completion.bash.inc'; fi
