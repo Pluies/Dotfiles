@@ -16,8 +16,9 @@ Plugin 'qualiabyte/vim-colorstepper'
 Plugin 'scrooloose/syntastic.git'
 Plugin 'tpope/vim-fireplace'
 Plugin 'nvie/vim-flake8'
-Bundle 'chase/vim-ansible-yaml'
 Plugin 'mattn/emmet-vim'
+Plugin 'hashivim/vim-terraform'
+Plugin 'juliosueiras/vim-terraform-completion'
 
 let g:flake8_cmd="/usr/local/bin/pep8"
 
@@ -56,6 +57,9 @@ endif
 
 " Display hidden files in NERDTree by default
 let NERDTreeShowHidden=1
+
+" Auto-format Terraform on save
+let g:terraform_fmt_on_save=1
 
 nmap j gj
 nmap k gk

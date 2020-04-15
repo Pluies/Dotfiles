@@ -1,3 +1,5 @@
 export VIRTUALENV_PYTHON=python3
 export VIRTUALENVWRAPPER_PYTHON=python3
-. virtualenvwrapper.sh
+function venv_me_up_brother {
+  . virtualenvwrapper.sh
+}

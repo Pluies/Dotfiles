@@ -10,12 +10,11 @@ export PS1="[\t] \u@\h:\w $ "
 ## OS X specific
 if [[ $(uname) == "Darwin" ]]
 then
-	alias ls='ls -lhG' # colourized output is -G for BSD ls, and --color for GNU ls
-	alias locate='echo "No! Use mdfind instead!"; #'
-	alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
-	if [ -f `brew --prefix`/etc/bash_completion ]; then
-		. `brew --prefix`/etc/bash_completion
-	fi
+  alias ls='ls -lhG' # colourized output is -G for BSD ls, and --color for GNU ls
+  alias locate='echo "No! Use mdfind instead!"; #'
+  alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
+  # bash completion
+  [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 fi
 
 ## Personal tweaks
@@ -38,12 +37,6 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 bind '"\eOA": history-search-backward'
 bind '"\eOB": history-search-forward'
-# More history!
-HISTSIZE=10000000
-HISTFILESIZE=10000000
-
-# rbenv autocompletion
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 GREEN="\033[0;32m"
 ORANGE="\033[1;33m"
@@ -55,18 +48,21 @@ BOLD="\033[1m"
 function gitcolour {
   STATUS=`git status 2>&1`
   if   [[ $STATUS == *'working tree clean'* ]]; then
-      echo -en $GREEN
+    echo -en $GREEN
   elif [[ $STATUS == *'not staged for commit'* ]]; then
-      echo -en $RED
+    echo -en $RED
   elif [[ $STATUS == *'to be committed'* ]]; then
-      echo -en $ORANGE
+    echo -en $ORANGE
   elif [[ $STATUS == *'Untracked files'* ]]; then
-      echo -en $CYAN
+    echo -en $CYAN
   fi
 }
 BOLDLAMBDA="\[$BOLD\]λ\[$NOCOLOUR\]"
 # Prettier prompt including Git status
 export PS1="[\t]\w\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\] $BOLDLAMBDA "
+
+# zsh / bash deprecation notice
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Longer history
 shopt -s histappend
@@ -74,11 +70,9 @@ export HISTCONTROL=ignoredups
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 
-# rbenv
-eval "$(rbenv init -)"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/florent/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/florent/Downloads/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/florent/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/florent/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+
