@@ -1,0 +1,40 @@
+---
+- name: Set up Homebrew
+  hosts: workstation
+  connection: local
+
+  tasks:
+  - name: Install Homebrew
+    shell:
+      cmd: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      creates: /usr/local/bin/brew
+
+  - name: Upgrade packages
+    community.general.homebrew:
+      update_homebrew: yes
+      upgrade_all: yes
+
+  - name: Install brew packages
+    community.general.homebrew:
+      name: "{{ item }}"
+      state: present
+    loop:
+    - ansible # Meta!
+    - awscli
+    - bash
+    - bash-completion
+    - curl
+    - fzf
+    - git
+    - go
+    - helm
+    - jq
+    - kubectx
+    - kubernetes-cli
+    - macvim
+    - ripgrep
+    - shellcheck
+    - terraform
+    - watch
+    - yq
+
