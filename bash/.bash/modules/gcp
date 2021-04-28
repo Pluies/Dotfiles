@@ -1,2 +1,4 @@
-#export GOOGLE_APPLICATION_CREDENTIALS=~/Downloads/google-cloud-sdk/florent-experiments-221421-ce07f4ba9273.json
-export GOOGLE_CLOUD_KEYFILE_JSON=~/Downloads/google-cloud-sdk/florent-experiments-221421-ce07f4ba9273.json
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/florent.delannoy/projects/google-cloud-sdk/path.bash.inc' ]; then . '/Users/florent.delannoy/projects/google-cloud-sdk/path.bash.inc'; fi
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/florent.delannoy/projects/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/florent.delannoy/projects/google-cloud-sdk/completion.bash.inc'; fi

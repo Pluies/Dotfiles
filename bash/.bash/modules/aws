@@ -1,3 +1,9 @@
 export AWS_REGION=eu-west-1
-# Wogan
-export AI_USER=florent
+export AWS_SDK_LOAD_CONFIG=1
+
+function terminate() {
+  [ -z "$1" ] && echo "Usage: terminate [instance-name]" && return
+  INSTANCE_ID=$(aws ec2 describe-instances --filter "Name=private-dns-name,Values=$1" | jq -r '.Reservations[0].Instances[0].InstanceId')
+  [ "$INSTANCE_ID" == "null" ] && echo "Instance $1 not found" && return
+  aws ec2 terminate-instances --instance-id="$INSTANCE_ID"
+}

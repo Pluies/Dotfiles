@@ -19,6 +19,7 @@ fi
 
 ## Personal tweaks
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=/usr/local/opt/mysql-client/bin:$PATH
 
 # Aliases
 for alias in ~/.bash/aliases/*
@@ -69,10 +70,3 @@ shopt -s histappend
 export HISTCONTROL=ignoredups
 export HISTSIZE=100000
 export HISTFILESIZE=100000
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/florent/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/florent/Downloads/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/florent/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/florent/Downloads/google-cloud-sdk/completion.bash.inc'; fi
-

@@ -19,6 +19,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'mattn/emmet-vim'
 Plugin 'hashivim/vim-terraform'
 Plugin 'juliosueiras/vim-terraform-completion'
+Plugin 'fatih/vim-go'
 
 let g:flake8_cmd="/usr/local/bin/pep8"
 
@@ -41,6 +42,7 @@ set hlsearch incsearch       " highlighted, incremental search
 set ignorecase smartcase     " smart casing
 set dir=/tmp                 " where to put the swap files
 set ttimeoutlen=50
+set sh=bash                  " Ensure we use bash for script-out
 
 if has('gui_running')
   " GUI config
@@ -60,6 +62,7 @@ let NERDTreeShowHidden=1
 
 " Auto-format Terraform on save
 let g:terraform_fmt_on_save=1
+autocmd FileType terraform setlocal cc=72
 
 nmap j gj
 nmap k gk
