@@ -12,16 +12,9 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'powerline/fonts'  " NB: still need to run the ./install.sh script for the fonts to actually get installed
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-Plugin 'qualiabyte/vim-colorstepper'
 Plugin 'scrooloose/syntastic.git'
-Plugin 'tpope/vim-fireplace'
-Plugin 'nvie/vim-flake8'
-Plugin 'mattn/emmet-vim'
 Plugin 'hashivim/vim-terraform'
 Plugin 'juliosueiras/vim-terraform-completion'
-Plugin 'fatih/vim-go'
-
-let g:flake8_cmd="/usr/local/bin/pep8"
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -60,10 +53,13 @@ endif
 " Display hidden files in NERDTree by default
 let NERDTreeShowHidden=1
 
+" Syntactic: force python 3 mode
+let g:syntastic_python_checkers = ['python']
+let g:syntastic_python_python_exec = 'python3'
+
 " Auto-format Terraform on save
 let g:terraform_fmt_on_save=1
 autocmd FileType terraform setlocal cc=72
 
 nmap j gj
 nmap k gk
-

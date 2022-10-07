@@ -16,6 +16,7 @@ fi
 ## Personal tweaks
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/usr/local/opt/mysql-client/bin:$PATH
+export PATH=/usr/local/opt/java/bin:$PATH
 
 # Aliases
 for alias in ~/.bash/aliases/*
@@ -40,23 +41,24 @@ ORANGE="\033[1;33m"
 RED="\033[0;31m"
 PURPLE="\033[0;35m"
 CYAN="\033[0;36m"
+GREY="\033[0;30m"
 NOCOLOUR="\033[0m"
 BOLD="\033[1m"
 function gitcolour {
-  STATUS=`git status 2>&1`
+  STATUS=$(git status 2>&1)
   if   [[ $STATUS == *'working tree clean'* ]]; then
-    echo -en $GREEN
+    echo -en "$GREEN"
   elif [[ $STATUS == *'not staged for commit'* ]]; then
-    echo -en $RED
+    echo -en "$RED"
   elif [[ $STATUS == *'to be committed'* ]]; then
-    echo -en $ORANGE
+    echo -en "$ORANGE"
   elif [[ $STATUS == *'Untracked files'* ]]; then
-    echo -en $CYAN
+    echo -en "$CYAN"
   fi
 }
 BOLDLAMBDA="\[$BOLD\]λ\[$NOCOLOUR\]"
-# Prettier prompt including Git status
-export PS1="[\t]\w\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\] $BOLDLAMBDA "
+# Prettier prompt including Git status and AWS temporary credentials
+export PS1="[\t]\w\[\$(gitcolour)\]\$(__git_ps1)\[$NOCOLOUR\]\[\$(gitcolour)\] $BOLDLAMBDA "
 
 # zsh / bash deprecation notice
 export BASH_SILENCE_DEPRECATION_WARNING=1
