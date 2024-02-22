@@ -1,14 +1,13 @@
 ## General
 alias ll='ls -lh'
 alias dud="du -h --max-depth=1"
-export EDITOR=vim
+export EDITOR=vi
 
 ## OS X specific
 if [[ $(uname) == "Darwin" ]]
 then
   alias ls='ls -lhG' # colourized output is -G for BSD ls, and --color for GNU ls
   alias locate='echo "No! Use mdfind instead!"; #'
-  alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
   # bash completion
   [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 fi
@@ -17,6 +16,7 @@ fi
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export PATH=/usr/local/opt/mysql-client/bin:$PATH
 export PATH=/usr/local/opt/java/bin:$PATH
+export PATH=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/:$PATH
 
 # Aliases
 for alias in ~/.bash/aliases/*
