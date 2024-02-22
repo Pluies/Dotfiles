@@ -1,0 +1,2 @@
+# Hardocde Java to Java 17, as brew updates are a bit bleeding-edge
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home/
