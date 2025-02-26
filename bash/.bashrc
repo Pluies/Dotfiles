@@ -10,10 +10,12 @@ then
   alias locate='echo "No! Use mdfind instead!"; #'
   # bash completion
   [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+  [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 fi
 
 ## Personal tweaks
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
 export PATH=/usr/local/opt/mysql-client/bin:$PATH
 export PATH=/usr/local/opt/java/bin:$PATH
 export PATH=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/:$PATH
@@ -70,4 +72,11 @@ export HISTSIZE=100000
 export HISTFILESIZE=100000
 
 # fzf setup
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
+
+# Google Cloud SDK & completion
+[ -f "$HOME/swamp/google-cloud-sdk/path.bash.inc" ] && source "$HOME/swamp/google-cloud-sdk/path.bash.inc"
+[ -f "$HOME/swamp/google-cloud-sdk/completion.bash.inc" ] && source "$HOME/swamp/google-cloud-sdk/completion.bash.inc"
+
+# Created by `pipx` on 2024-10-28 09:22:46
+export PATH="$PATH:$HOME/.local/bin"

@@ -15,6 +15,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic.git'
 Plugin 'hashivim/vim-terraform'
 Plugin 'juliosueiras/vim-terraform-completion'
+Plugin 'google/vim-jsonnet'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -60,6 +61,9 @@ let g:syntastic_python_python_exec = 'python3'
 " Auto-format Terraform on save
 let g:terraform_fmt_on_save=1
 autocmd FileType terraform setlocal cc=72
+
+" jsonnet: do not format on save (too brutal)
+let g:jsonnet_fmt_on_save=0
 
 nmap j gj
 nmap k gk
