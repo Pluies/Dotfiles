@@ -78,5 +78,11 @@ export HISTFILESIZE=100000
 [ -f "$HOME/swamp/google-cloud-sdk/path.bash.inc" ] && source "$HOME/swamp/google-cloud-sdk/path.bash.inc"
 [ -f "$HOME/swamp/google-cloud-sdk/completion.bash.inc" ] && source "$HOME/swamp/google-cloud-sdk/completion.bash.inc"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 # Created by `pipx` on 2024-10-28 09:22:46
 export PATH="$PATH:$HOME/.local/bin"
+
+export PATH="$PATH:/Users/florentdelannoy/.foundry/bin"
