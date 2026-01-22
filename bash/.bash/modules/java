@@ -1,2 +1,2 @@
-# Hardocde Java to Java 25
-export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/temurin-25.0.1/Contents/Home/
+# Hardocde Java to Java 23
+export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/temurin-23.0.1/Contents/Home/
